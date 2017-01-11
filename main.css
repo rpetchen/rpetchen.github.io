@@ -312,7 +312,6 @@ ul {
     transition: transform 0.1s ease;
     height: 0;
     left: 0;
-    margin-top: 40px;
     position: absolute;
 }
 
