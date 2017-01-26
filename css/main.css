@@ -1,0 +1,368 @@
+
+
+body {
+    margin: auto;
+    background-image: url(img/cork-wallet.png);
+    height: auto;
+}
+
+html {
+    height: auto;
+}
+.brand {
+    font-size: 25px;
+    color: #a6a7a8;
+}
+.logo  {
+    height: 40px;
+    width: 40px;
+    float: left;
+    padding-top: 1px;
+}
+
+.topwrapper {
+    width: 100%;
+    position: fixed;
+    z-index: 10;
+    background-color: #222523;
+    margin: 0 auto;
+    border-bottom-color: gray;
+    border-bottom-style: solid;
+    border-bottom-width: 2px;
+    top: 0;
+}
+.header-port .fa {
+    font-size: 42px;
+    float: left;
+    margin-right: 0;
+}
+ul {
+    list-style-type: none;
+    text-decoration: none;
+    font-family: 'Baloo thambi', cursive;
+}
+.site-nav li a {
+    text-decoration: none;
+}
+.site-nav li {
+    display: inline;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.site-nav {
+    text-align: right;
+    margin: auto;
+    position: absolute;
+    top: -40px; 
+    right: 0;
+   
+}
+
+#sitemenu {
+    max-width: 1000px;
+    position: relative;
+    margin: auto;
+
+}
+
+#header-nav {
+    margin-bottom: 0;
+    background-color: #222323;
+    margin-top: 0;
+    -webkit-padding-start: 0;
+}
+#header-nav a:hover {
+    padding: 4px;
+    color: orange;
+}
+.nav-link {
+    border-left-color: gray;
+    border-left-style: solid;
+    border-left-width: .5px;
+    border-right-color: gray;
+    border-right-style: solid;
+    border-right-width: .5px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+.nav-link a {
+    color: #a6a7a8;
+    text-decoration: none;
+    font-size: 20px;
+    vertical-align: middle;
+}
+.hamburger .fa {
+    display: none;
+}
+.container {
+    max-width: 1000px;
+    margin: auto;
+    margin-top: 1.5%;
+    margin-bottom: 1.5%;
+}
+.col-1 {
+    width: 8%;
+}
+.col-2 {
+    width: 16%;
+}
+.col-3 {
+    width: 23.5%;
+    margin-right: 2%;
+    margin-bottom: 2%;
+}
+.col-4 {
+    width: 31%;
+    box-sizing: border-box;
+    margin-right: 15px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    border-radius: 4px;
+    background-color: white;
+}
+.col-6 {
+    width: 50%;
+    margin: auto;
+}
+.col-12 {
+    width: 100%;
+    padding-left: 15px;
+    padding-right: 30px;
+}
+.col h3 {
+    text-align: left;
+    padding-left: 1%;
+    background-color: white;
+    margin-bottom: 0;
+}
+.col h4 {
+    margin-bottom: 0;
+}
+.col p {
+    margin-top: 0;
+}
+.img-resp {
+    max-width: 100%;
+    box-sizing: border-box;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    border-radius: 4px;
+}
+.row1 {
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    margin-left: 15px;
+    justify-content: space-around;
+}
+#header {
+    color: black;
+}
+#foot-nav {
+    background-color: black;
+    margin: auto;
+    text-align: center;
+}
+.site-foot {
+    background-color: white;
+}
+.site-foot li {
+    display: inline;
+    margin-right: 10%;
+}
+.foot-link {
+    border: none;
+    text-decoration: none;
+}
+.site-foot a {
+    text-decoration: none;
+}
+.site-footer {
+    background-color: black;
+}
+#foot-nav .fa {
+    font-size: 70px;
+    color: white;
+}
+.col h2 {
+    background-color: rgba(176, 198, 221, .5);
+    border-radius: 20%;
+    text-align: center;
+}
+.caption {
+    width: 100%;
+}
+#mainimage {
+    display: block;
+    margin: auto;
+    height: auto;
+    max-width: 100%;
+}
+.logoholder {
+    max-width: 1000px;
+    margin: auto;
+}
+#navlogo {
+    z-index: 20;
+    height: 40px;
+    width: 40px;
+    float: left;
+    padding-top: 3px;
+}
+#maintext {
+    font-family: 'Merriweather', serif;
+    color: white;
+    font-size: 200%;
+    margin: auto;
+    background-color: #50d07d;
+    max-width: 1000px;
+    padding-top: 60px;
+    padding-bottom: 10px;
+}
+#secondtext {
+    font-family: 'Merriweather', serif;
+    color: white;
+    font-size: 100%;
+    margin: auto;
+    background-color: #50d07d;
+    text-align: left;
+    max-width: 1000px;
+    padding-top: 3px;
+    padding-bottom: 30px;
+    display: block;
+}
+#introtext {
+    width: 100%;
+    background-color: #50d07d;
+    margin: auto;
+    -moz-box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.3);
+}
+.projecttext {
+    line-height: 1.5;
+    margin-left: 1%;
+}
+.article {
+    width: 100%;
+}
+.colum-wrapper {
+  
+    margin: auto;
+    height: 100%;
+    max-width: 1000px;
+}
+#abouttext {
+    color: black;
+    font-family: 'Merriweather', serif;
+    text-align: left;
+    padding-bottom: 10px;
+    margin-top: 0;
+    margin-right: 15px;
+}
+#abouthead {
+    font-family: 'Merriweather', serif;
+    color: black;
+    font-size: 150%;
+    margin: auto;
+    text-align: left;
+    max-width: 1000px;
+    padding-top: 30px;
+    padding-bottom: 10px;
+}
+.personal {
+    box-sizing: border-box;
+    display: block;
+    background-color: rgb(255, 195, 113);
+    -moz-box-shadow: 0px -1px 1px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 0px -1px 1px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px -1px 1px rgba(0, 0, 0, 0.3);
+   height: 100%;
+}
+
+ #logotext {
+        display: inline;
+        color: white;
+        text-align: left;
+        font-size: 200%;
+        color: #50d07d;
+        font-family: 'Baloo thambi', cursive;
+    }
+
+@media only screen and (max-width: 710px) {
+    .col-4 {
+        width: 45%;
+    }
+    .img-resp {
+        width: 100%;
+    } 
+}
+
+@media only screen and (max-width: 610px) {
+    
+    .hamburger .fa {
+        display: inline-block;
+        position: absolute;
+        right: 0;
+        top: 0;
+        text-align: right;
+        margin-left: 1px;
+        cursor: pointer;
+        font-size: 30px;
+        color: #a6a7a8;
+        right: 1%;
+        padding-top: 5px;
+    }
+    .hamburger .fa:active {
+        background-color: rgba(255, 255, 255, 0.5)
+    }
+    #navlogo {
+        position: static;
+        padding: 0;
+    }
+    .site-nav {
+        z-index: 15;
+        width: 200px;
+        -webkit-transform: translate(-200px, 0);
+        transform: translate(-200%, 0);
+        transition: transform 0.1s ease;
+        left: 0;
+        position: absolute;
+        margin-left: 0;
+        top: -50px;
+    }
+    .site-nav.open {
+        -webkit-transform: translate(0, 0);
+        transform: translate(0, 0);
+    }
+    .nav-link {
+        display: list-item;
+        border: none;
+    }
+
+}
+@media only screen and (max-width: 450px) {
+ 
+    
+ 
+    .col-4 {
+        width: 100%;
+        margin-bottom: 5%;
+        background-color: white;
+    }
+    .img-resp {
+        width: 100%;
+    }
+    
+    #logotext {
+        display: inline;
+        color: white;
+        text-align: left;
+        padding-left: 1%;
+        font-size: 200%;
+        color: #50d07d;
+        font-family: 'Baloo thambi', cursive;
+    }
+   
+}
