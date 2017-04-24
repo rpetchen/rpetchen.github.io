@@ -22,7 +22,7 @@ var Enemy = function() {
 // Parameter: dt, a time delta between ticks
 Enemy.prototype.update = function(dt) {
 
-this.x += speed * dt;
+this.x += speed ;
 
     if (this.x > cWidth-50) {
     speed = -speed
