@@ -3,23 +3,26 @@
 
 var cWidth = 505;
 
-var cHheight = 606;
-
 var allEnemies = [];
+var allGems = [];
+var maxEnemies = 4
 
-var maxEnemies = 1
+var speed = 70
 
-var speed = 60
+var lives 
 
-var enemyStartx = [-100, -50, - 150, -200]
+var maxGem = 3
+var gemY = [140, 240, 40]
+var gemX =  [115, 315, 215]
 
-var enemyStarty = [60, 140, 220]
+var enemyStarty = [140, 240, 40]
+var enemyStartx = [115, 315, 215]
 
 
 //Enemy class
 var Enemy = function() {
     this.y = enemyStarty[Math.floor((Math.random() * 3))];
-    this.x = enemyStartx[Math.floor((Math.random() * 4))];
+    this.x = -100
     this.enemys = this.x;
     this.sprite = 'images/enemy-bug.png';
     this.speed = speed * Math.floor((Math.random() * 4) );
@@ -30,6 +33,19 @@ var Player = function () {
     this.x = 201;
     this.y = 404;
     this.sprite = 'images/char-boy.png';
+    this.score = 0 ;
+};
+
+
+
+//Gem Class
+var Gem = function () {
+    this.x = Math.floor((Math.random() * 3));
+    this.xplace = gemX[this.x]
+    this.y = gemY[Math.floor((Math.random() * 3))];
+    this.dis = true;
+    this.sprite = 'images/Gem Orange.png';
+    this.value = 1;
 }
 
 Enemy.prototype.update = function(dt) {
@@ -52,7 +68,6 @@ allEnemies.push (new Enemy());
 };
 
 this.Collisions();
-
 };
 
 
@@ -63,7 +78,9 @@ Enemy.prototype.render = function() {
 };
 
 
-Player.prototype.update = function() {}
+Player.prototype.update = function() {
+ 
+}
 
 
 Player.prototype.handleInput= function (key) {
@@ -84,7 +101,6 @@ Player.prototype.handleInput= function (key) {
             if (this.x < 401)
             this.x += 100;
     };
-
 };
 
 Player.prototype.render = function () {
@@ -98,6 +114,12 @@ for (var i = 0; i <= maxEnemies; i++) {
 allEnemies[i] = new Enemy();
 };
 
+for (var i = 0; i < maxGem; i++) {
+    allGems[i] = new Gem();
+    gemX.splice(allGems[i].x, 1)
+}
+
+
 
 //collision method for Enemy 
 
@@ -109,19 +131,46 @@ if (this.x < player.x + 50 && this.x + 70 > player.x
 
     player.x = 201
     player.y = 404
-
 }
-
-
 }
-
 
 
 Player.prototype.Reset = function () {
 
+}
+
+Gem.prototype.render = function () {
+   if (this.dis == true) {
+    this.Draw();
+   }
+
+   allGems.forEach(function(gem) {
+    if (gem.xplace == null) {
+        gem.xplace = gemX[Math.floor((Math.random() * 3))];
+    }
+})
+}
+
+Gem.prototype.Draw = function () {
+         ctx.drawImage(Resources.get(this.sprite), this.xplace, this.y)
+}
+
+Gem.prototype.update = function () {
+this.collision();
 
 }
 
+
+Gem.prototype.collision = function () {
+
+    if (this.x < player.x + 90 && this.x + 40 > player.x 
+    && this.y < player.y + 40 && this.y + 40 > player.y ) {
+    this.dis = false;
+    this.x = -100
+    player.score += this.value
+  }
+    
+}
 
 document.addEventListener('keyup', function(e) {
     var allowedKeys = {
