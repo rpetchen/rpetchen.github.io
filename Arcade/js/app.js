@@ -6,7 +6,7 @@ var maxEnemies = 4
 var speed = 70
 var lives = 3
 var maxGem = 3
-var gemY = [140, 240, 90]
+var gemY = [170, 240, 90]
 var gemX = [115, 315, 215]
 var enemyStarty = [140, 240, 70]
 var enemyStartx = [115, 315, 215]
@@ -120,6 +120,8 @@ for (var i = 0; i <= maxEnemies; i++) {
 for (var i = 0; i < maxGem; i++) {
     allGems[i] = new Gem();
     gemX.splice(allGems[i].x, 1)
+
+    
 }
 
 
@@ -169,10 +171,21 @@ Gem.prototype.render = function() {
     allGems.forEach(function(gem) {
         if (gem.xplace == null) {
             gem.xplace = gemX[Math.floor((Math.random() * 3))];
+             
+
+         if (gem.xplace != null && isInArray (gem.x, allGems) ) {
+         var x = allGems.indexOf(gem.xplace)
+         gemX.splice(allGems[gem].x, 1)  
+        }
+           
         }
     })
 }
 
+//function to support index removal from allGems array 
+function isInArray (value, array) {
+    return array.indexOf(value) > -1;
+}
 
 //draw gems
 Gem.prototype.Draw = function() {
