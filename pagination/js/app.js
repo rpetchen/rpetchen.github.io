@@ -1,129 +1,105 @@
 var studentList = document.querySelectorAll(".student-item")
 var numRecords = 10
-var numPages = Math.ceil((studentList.length)/numRecords)
-var pages = []
-var startPage = 1
-var nameArray = []
-var nameClass = document.querySelectorAll(".student-details")
-var nameH = document.querySelectorAll('h3')
-var emailH = document.querySelectorAll('.email')
-var emailArray = []
-//initialize search bar
-var pageH = document.querySelector(".page-header")
-var searchClass = document.createElement('div')
+numPages = Math.ceil(studentList.length/numRecords)
+const pageH = document.querySelector(".page-header")
+const searchClass = document.createElement('div')
 searchClass.className = 'student-search'
-var searchBar = document.createElement('input')
+const searchBar = document.createElement('input')
 searchBar.type = 'text'
-var searchBut = document.createElement('button')
+clearBut = document.createElement('button')
+clearBut.className = 'clear'
+const searchBut = document.createElement('button')
+searchBut.className = 'search'
 searchBut.textContent = "Search"
 searchClass.appendChild(searchBar)
 searchClass.appendChild(searchBut)
 pageH.appendChild(searchClass)
+searchClass.appendChild(clearBut)
+clearBut.textContent = 'Clear Search Results'
 
-var buttonTag = document.getElementsByTagName('button')
-var button = buttonTag[0]
+var searchbutton = document.querySelector('.search')
+var clearbutton = document.querySelector('.clear')
 
-	var page_list = document.createElement('ul')
-	page_list.className = "pagination"
-	var page = document.querySelector(".page")
-	page.appendChild(page_list)
-	
+var page_list = document.createElement('ul')
+page_list.className = "pagination"
+var page = document.querySelector(".page")
+page.appendChild(page_list)
+var page_link
 
 
+function showPage(num, list) {
 
-function pageArray () {
-
-for (k = 1;  k < numPages+1; k ++){
-pages.push(k);
-console.log(pages[k])
+for (c = 0; c<studentList.length; c++){
+	studentList[c].style.display = 'none'
 }
-}
-pageArray()
+for (p = 0; p <list.length; p++) {
 
-
-function showPage(num) {
-
-for (i = 0; i < studentList.length; i ++){
-studentList[i].style.display = 'none'
-}
-
-for (z = num; z <= num; z++) {
-	studentIndex = numRecords * (z-1);
-	records = numRecords * z
-
-	for (studentIndex; studentIndex < records; studentIndex++) {
-		var student = studentList[studentIndex]
-		console.log(student)
-		student.style.display = 'block'
-		}
+	if (p >= (num * numRecords) && p <= (num * 10) + 9) {
+		list[p].style.display = 'block'
 	}
-
+}
 }
 
-showPage(startPage)
 
+showPage(0, studentList)
 
-
-
-function appendPageLinks () {
-
-	pages.forEach(function(p){ 
+function appendPageLinks (numPages) {
+page_list.innerHTML = ''
+	for (let j = 0; j< numPages; j++) { 
 		var page_link = document.createElement('li')
 		var link = document.createElement('a')
 		link.setAttribute('href', '#')
 		page_list.appendChild(page_link)
 		page_link.appendChild(link)
-		link.textContent =  p
+		link.textContent =  j + 1
+		page_link.addEventListener('click', function() {showPage(j, studentList) })
 
-	page_link.addEventListener('click', function() {showPage(p) })
-
-	})
-
-
-}
-appendPageLinks()
-
-
-
-nameH.forEach(function (elem) {
-
-elem.className = "searchName"
-
-})
-
-
-for (i = 0; i < nameH.length; i ++) {
-	nameArray[i] = nameH[i].textContent	
-	emailArray[i] = emailH[i].textContent 
+	}
 }
 
-button.addEventListener('click', function() {
+appendPageLinks(numPages)
+
+searchBut.addEventListener('click', function() {
 
 if (document.querySelector('.student-search input').value != null) {
 var input = searchBar.value
-search(input)
-console.log(input)
 
+studentMatch = search(input)
+showPage(0, studentMatch)
+
+if (studentMatch.length > numRecords) {
+	totalPages = Math.ceil(studentMatch.length/numRecords)
+	appendPageLinks(totalPages)
 }
-
+}
 })
 
 searchBar.addEventListener('click', function() {
 	searchBar.style.color = 'black'
 })
 
-function search (input) {
 
+clearbutton.addEventListener('click', function () {
+appendPageLinks(numPages)
+showPage(0, studentList)
+searchBar.value = ''
+})
+
+function search (input) {
 var found = false
+var studentMatch = []
+const studentE = document.querySelectorAll('.student-details .email')
+const studentN = document.querySelectorAll('.student-details h3')
+
 
 if (input != null) {
 
 for (i = 0; i < studentList.length; i ++){
-studentList[i].style.display = 'none'
 
-if (nameArray[i].includes(input)) {
-	studentList[i].style.display = 'block'
+
+if (studentE[i].innerHTML.includes(input) || studentN[i].innerHTML.includes(input)) {
 	found = true
+	studentMatch.push(studentList[i])
 } 
 
 if (found == true) {
@@ -133,15 +109,10 @@ if (found != true) {
 	searchBar.value = "NO RESULTS FOUND"
 	searchBar.style.color = 'red'
 }
-
 }
 }
+return studentMatch
 }
-
-
-
-
-
 
 
 
