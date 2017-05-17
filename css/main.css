@@ -330,7 +330,7 @@ ul {
         left: 0;
         position: absolute;
         margin-left: 0;
-        top: -50px;
+        
     }
     .site-nav.open {
         -webkit-transform: translate(0, 0);
