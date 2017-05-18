@@ -291,4 +291,17 @@ if (reg.test(mail.value) === false) {
 			emailError.textContent = 'E-Mail must include @ and .'
 			emailError.style.color = 'red'
 }
+else {emailError.textContent = ''}
 })
+
+if (designS.value === 'Select Theme') {
+		colorS.style.display = 'none'
+	}
+designS.addEventListener('change', function(){
+	if (designS.value === 'Select Theme') {
+		colorS.style.display = 'none'
+	}
+	else {colorS.style.display = ''}
+
+})
+
